@@ -1,0 +1,59 @@
+-- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+--
+-- Host: localhost    Database: admissions
+-- ------------------------------------------------------
+-- Server version	8.0.31
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `officers`
+--
+
+DROP TABLE IF EXISTS `officers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `officers` (
+  `FIRST_NAME` char(25) NOT NULL,
+  `LAST_NAME` char(25) NOT NULL,
+  `OFFICER_ID` char(10) NOT NULL,
+  `RUBRIC_ID` char(4) NOT NULL,
+  `YEARLY_SALARY` double(10,2) NOT NULL,
+  `APPLICATIONS_COMPLETED` int NOT NULL,
+  PRIMARY KEY (`OFFICER_ID`),
+  UNIQUE KEY `OFFICER_ID` (`OFFICER_ID`),
+  KEY `RUBRIC_ID` (`RUBRIC_ID`),
+  CONSTRAINT `officers_ibfk_1` FOREIGN KEY (`RUBRIC_ID`) REFERENCES `rubric` (`RUBRIC_ID`),
+  CONSTRAINT `officers_ibfk_2` FOREIGN KEY (`RUBRIC_ID`) REFERENCES `rubric` (`RUBRIC_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `officers`
+--
+
+LOCK TABLES `officers` WRITE;
+/*!40000 ALTER TABLE `officers` DISABLE KEYS */;
+INSERT INTO `officers` VALUES ('Josh','Clyde','1111111111','2000',57000.00,20),('Reiss','Mccoy','1111111112','1000',59000.00,15),('Tamsin','Field','1111111113','1000',50000.00,30),('Cherise','Harvey','1111111114','2000',51000.00,12),('Cieran','Dickson','1111111115','2000',48000.00,29),('Mindy','Sexton','1111111116','1000',42000.00,26),('Eathan','Tillman','1111111117','3000',51000.00,15),('Denise','Hastings','1111111118','3000',28000.00,18),('Ajwa','Hirst','1111111119','2000',65000.00,26),('Skye','Curran','1111111120','3000',52000.00,14),('Chanice','Houghton','1111111121','1000',54000.00,13),('Alaina','Barron','1111111122','1000',61000.00,26),('Benito','Dominguez','1111111123','2000',59000.00,24),('Isabella','Plant','1111111124','2000',40000.00,29),('Cherise','Howell','1111111125','2000',35000.00,13),('Teejay','Senior','1111111126','3000',57000.00,16),('Moesha','Villanueva','1111111127','3000',57000.00,19),('Laibah','Coleman','1111111128','1000',57000.00,18),('Rory','Mcarthur','1111111129','2000',57000.00,24),('Ivy','Fraser','1111111130','3000',57000.00,21);
+/*!40000 ALTER TABLE `officers` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-11-18 18:09:24
